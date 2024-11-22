@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Despesas</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Categoria</th>
+            <th>Descrição</th>
+            <th>Valor (R$)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for despesa in despesas %}
+        <tr>
+            <td>{{ despesa.categoria }}</td>
+            <td>{{ despesa.descricao }}</td>
+            <td>{{ "%.2f"|format(despesa.valor) }}</td>
+            <td>
+                <a href="{{ url_for('update', id=despesa.id) }}">Editar</a>
+                <a href="{{ url_for('delete', id=despesa.id) }}" onclick="return confirm('Deseja excluir esta despesa?');">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

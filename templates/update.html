@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Editar Despesa</h2>
+<form method="POST">
+    <label for="categoria">Categoria:</label>
+    <input type="text" id="categoria" name="categoria" value="{{ despesa.categoria }}" required>
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" name="descricao" value="{{ despesa.descricao }}" required>
+    <label for="valor">Valor:</label>
+    <input type="number" step="0.01" id="valor" name="valor" value="{{ despesa.valor }}" required>
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}
